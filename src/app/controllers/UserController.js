@@ -11,24 +11,9 @@ const moment = require("moment/moment");
 //@access public
 const registerUser = asyncHandler(async (req, res, next) => {
   try {
-    const {
-      firstName,
-      lastName,
-      gender,
-      dob,
-      address,
-      phone,
-      email,
-      password,
-      roleName,
-    } = req.body;
+    const { fullName, email, password, roleName } = req.body;
     if (
-      firstName === undefined ||
-      lastName === undefined ||
-      gender === undefined ||
-      dob === undefined ||
-      address === undefined ||
-      phone === undefined ||
+      fullName === undefined ||
       email === undefined ||
       password === undefined ||
       roleName === undefined
@@ -42,31 +27,11 @@ const registerUser = asyncHandler(async (req, res, next) => {
       throw new Error("User has already registered with Email!");
     }
 
-    if (phone !== "") {
-      const pattern = /^0\d{9}$/;
-      if (!pattern.test(phone)) {
-        res.status(400);
-        throw new Error("Phone must have 10 numbers and start with 0 number!");
-      }
-      const userPhoneAvailable = await User.findOne({ phone });
-      if (userPhoneAvailable) {
-        res.status(400);
-        throw new Error("User has already registered with Phone Number!");
-      }
-    }
-
-    const date = new Date(dob);
-
     //Hash password
     const hashedPassword = await bcrypt.hash(password, 10);
     const role = await Role.findOne({ roleName });
     const user = await User.create({
-      firstName,
-      lastName,
-      gender,
-      dob: dob === "" ? dob : date,
-      address,
-      phone,
+      fullName,
       email,
       password: hashedPassword,
       role_id: role._id.toString(),
@@ -78,12 +43,10 @@ const registerUser = asyncHandler(async (req, res, next) => {
     const accessToken = jwt.sign(
       {
         user: {
-          firstName: user.firstName,
-          lastName: user.lastName,
+          fullName: user.fullName,
           email: user.email,
           roleName: role.roleName,
           role_id: user.role_id,
-          imgURL: user.imgURL,
           id: user.id,
         },
       },
@@ -94,12 +57,10 @@ const registerUser = asyncHandler(async (req, res, next) => {
     const refreshToken = jwt.sign(
       {
         user: {
-          firstName: user.firstName,
-          lastName: user.lastName,
+          fullName: user.fullName,
           email: user.email,
           roleName: role.roleName,
           role_id: user.role_id,
-          imgURL: user.imgURL,
           id: user.id,
         },
       },

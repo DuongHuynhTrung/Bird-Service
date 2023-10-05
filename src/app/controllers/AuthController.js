@@ -33,12 +33,10 @@ const login = asyncHandler(async (req, res, next) => {
       const accessToken = jwt.sign(
         {
           user: {
-            firstName: user.firstName,
-            lastName: user.lastName,
+            fullName: user.fullName,
             email: user.email,
             roleName: role.roleName,
             role_id: user.role_id,
-            imgURL: user.imgURL,
             id: user.id,
           },
         },
@@ -49,12 +47,10 @@ const login = asyncHandler(async (req, res, next) => {
       const refreshToken = jwt.sign(
         {
           user: {
-            firstName: user.firstName,
-            lastName: user.lastName,
+            fullName: user.fullName,
             email: user.email,
             roleName: role.roleName,
             role_id: user.role_id,
-            imgURL: user.imgURL,
             id: user.id,
           },
         },

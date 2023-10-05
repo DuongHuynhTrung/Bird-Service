@@ -15,30 +15,10 @@ const {
  *      User:
  *        type: object
  *        properties:
- *          firstName:
- *            type: string
- *            description: enter your first name
- *            example: Trung
- *          lastName:
+ *          fullName:
  *            type: string
  *            description: enter your last name
- *            example: Duong
- *          gender:
- *            type: string
- *            description: enter your gender
- *            example: Male
- *          dob:
- *            type: string
- *            description: enter your dob
- *            example: 22/02/2001
- *          address:
- *            type: string
- *            description: enter your address
- *            example: Ho Chi Minh
- *          phone:
- *            type: string
- *            description: enter your phone
- *            example: 0838323403
+ *            example: Customer
  *          email:
  *            type: string
  *            description: enter your email
@@ -68,30 +48,10 @@ const {
  *           schema:
  *             type: object
  *             properties:
- *               firstName:
- *                  type: string
- *                  description: enter your first name
- *                  example: Trung
- *               lastName:
+ *               fullName:
  *                  type: string
  *                  description: enter your last name
  *                  example: Duong
- *               gender:
- *                  type: string
- *                  description: enter your gender
- *                  example: Male
- *               dob:
- *                  type: string
- *                  description: enter your dob
- *                  example: 22/02/2001
- *               address:
- *                  type: string
- *                  description: enter your address
- *                  example: Ho Chi Minh
- *               phone:
- *                  type: string
- *                  description: enter your phone
- *                  example: 0838323403
  *               email:
  *                  type: string
  *                  description: enter your email

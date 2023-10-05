@@ -2,28 +2,10 @@ const mongoose = require("mongoose");
 
 const userSchema = mongoose.Schema(
   {
-    firstName: {
-      type: String,
-      maxLength: 255,
-      required: [true, "Please add your first name."],
-    },
-    lastName: {
+    fullName: {
       type: String,
       maxLength: 255,
       required: [true, "Please add your last name."],
-    },
-    gender: {
-      type: String,
-    },
-    dob: {
-      type: String,
-    },
-    address: {
-      type: String,
-    },
-    phone: {
-      type: Number,
-      maxLength: 10,
     },
     email: {
       type: String,
@@ -33,12 +15,6 @@ const userSchema = mongoose.Schema(
     },
     password: {
       type: String,
-    },
-    imgURL: {
-      type: String,
-    },
-    profit: {
-      type: Number,
     },
     role_id: {
       type: mongoose.Schema.Types.ObjectId,
