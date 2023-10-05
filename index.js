@@ -41,7 +41,7 @@ const options = {
         url: `http://localhost:${PORT}`,
       },
       {
-        url: `https://rental-vehicle-na07.onrender.com`,
+        url: `https://bird-service-gfpf.onrender.com`,
       },
     ],
     components: {
