@@ -169,9 +169,9 @@ const forgotPassword = asyncHandler(async (req, res) => {
               <a
                 target="_blank"
                 style="color:#444;text-decoration:underline"
-                href="mailto:infor.driveconn@gmail.com.com"
+                href="mailto:nnbngan7501@gmail.com.com"
               >
-                infor.driveconn@gmail.com
+                nnbngan7501@gmail.com
               </a>
               if you did not request this code.
             </p>
